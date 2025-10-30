@@ -122,6 +122,7 @@ Environment: GCC / Linux / Windows
 ---
 
 ⚡ How to Run
+
 Step 1: Clone the Repository
 
 git clone https://github.com/shubhamchaudhari007/Lexical-Analyzer-for-C.git
@@ -145,8 +146,11 @@ lexical_analyzer.exe sample.c
 🚧 Error Handling
 
 Missing Terminator	"Hello	⚠️ ERROR: Missing Terminating Character
+
 Invalid Constant	10.2.5	⚠️ Invalid floating constant (too many dots)
+
 Unclosed Brackets	{ int a = 5;	❌ ERROR: Unclosed Brackets Detected {
+
 Unterminated Comment	/* comment	❌ ERROR: Unterminated Comment
 
 ---
@@ -157,9 +161,13 @@ It deepened my knowledge of C programming, string processing, and syntax parsing
 
 ---
 👨‍💻 Author
+
 Shubham Chaudhari
+
 📧 shubhamchaudhari508@gmail.com
-🔗 LinkedIn([https://www.linkedin.com/in/shubham-chaudhari-102672260](https://www.linkedin.com/in/shubham-chaudhari-102672260/))
+
+🔗 LinkedIn(https://www.linkedin.com/in/shubham-chaudhari-102672260/)
+
 💻 GitHub()
 
 ---
