@@ -166,7 +166,7 @@ Shubham Chaudhari
 
 📧 shubhamchaudhari508@gmail.com
 
-🔗 LinkedIn(https://www.linkedin.com/in/shubham-chaudhari-102672260/)
+🔗 [LinkedIn](https://www.linkedin.com/in/shubham-chaudhari-102672260/)
 
 💻 GitHub()
 
