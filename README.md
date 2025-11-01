@@ -1,177 +1,220 @@
-# 🔍 Lexical Analyzer for C Programs  
+# 🔍 C Lexical Analyzer & Syntax Validator
 
-[![Language](https://img.shields.io/badge/Made%20with-C-blue.svg)](https://en.wikipedia.org/wiki/C_(programming_language))
-[![Platform](https://img.shields.io/badge/Platform-Linux%20%7C%20Windows-lightgrey.svg)](https://github.com/shubhamchaudhari007)
-[![License](https://img.shields.io/badge/License-Open--Source-green.svg)](https://opensource.org/)
-[![GitHub Stars](https://img.shields.io/github/stars/shubhamchaudhari007/Lexical-Analyzer-for-C?style=social)](https://github.com/shubhamchaudhari007/Lexical-Analyzer-for-C/stargazers)
-
----
-
-## 🧠 Overview  
-
-The **Lexical Analyzer for C** is a compiler front-end program written in **C language** that performs **lexical analysis** — the first phase of a compiler.  
-It scans the source code and breaks it into meaningful **tokens** such as keywords, identifiers, constants, operators, and symbols.  
-
-This project also includes **bracket validation**, **error handling**, and **color-coded token display**, giving a clear and interactive representation of how a compiler interprets C programs at the lexical level.
+![Language](https://img.shields.io/badge/Language-C-blue)
+![Status](https://img.shields.io/badge/Project%20Type-Compiler%20Component-brightgreen)
+![License](https://img.shields.io/badge/License-MIT-yellow)
+![Platform](https://img.shields.io/badge/Platform-Linux%20%7C%20Windows-lightgrey)
 
 ---
 
-## ⚙️ Features  
+## 📘 Overview
 
-✅ Detects and categorizes:  
-- **Keywords** → `int`, `if`, `return`, etc.  
-- **Identifiers** → variable and function names  
-- **Operators & Symbols** → `+`, `-`, `*`, `/`, `=`, `;`, `{}`, `()`, `[]`  
-- **Constants** → integer, float, character, and string literals  
-- **Comments** → single-line `//` and multi-line `/*...*/`  
-- **Error Detection** → invalid tokens, missing terminators, or unbalanced brackets  
+This project is a **C Lexical Analyzer and Syntax Validator**, designed to simulate the **lexical analysis phase of a compiler**.  
+It scans a C source file, breaks it into **tokens**, identifies their types (keywords, identifiers, operators, etc.), and detects **syntax and lexical errors** such as:
 
-✅ Performs **Bracket Matching** (detects unclosed or mismatched `{}`, `()`, `[]`)  
-✅ Displays **color-coded output** for better readability  
-✅ Designed with **modular structure and clean C code**
+- Unmatched or misplaced brackets `() {} []`
+- Invalid numeric formats (binary, octal, hex, float)
+- Unterminated strings and comments
+- Ternary operator misplacement (`? :`)
+- Invalid suffixes or malformed tokens
+
+This project provides **line-wise color-coded output**, making it easy to debug and understand how a compiler processes C source code.
 
 ---
 
-## 🧩 Project Structure  
+## 🧩 Features
 
-Lexical-Analyzer-for-C/
+### 🟦 **1. Lexical Tokenization**
+Detects and classifies:
+- **Keywords:** `int`, `float`, `while`, `return`, etc.
+- **Identifiers:** User-defined variable and function names.
+- **Constants:** Integer, Floating point, Hexadecimal, Binary, and Octal numbers.
+- **Operators:** Arithmetic, Relational, Logical, Bitwise, Assignment, and Conditional operators.
+- **Symbols:** `{`, `}`, `()`, `[]`, `;` etc.
+- **String & Character Literals:** Proper validation with error reporting.
+
+### 🟨 **2. Syntax Validation**
+- **Bracket Checking:** Uses a stack-based mechanism to validate proper opening and closing of `()`, `{}`, and `[]`.
+- **Ternary Operator Validation:** Ensures correct usage of `?` and `:` in conditional expressions.
+
+### 🟥 **3. Error Detection**
+Reports syntax errors such as:
+- Invalid suffix on constants.
+- Unterminated string or character literals.
+- Unterminated or nested comments.
+- Extra or missing brackets.
+- Invalid floating or numeric constants.
+- Ternary operator misplacement.
+
+### 🟩 **4. Modular Code Structure**
+The project is split into multiple files for clarity:
+- `main.c` → Entry point, handles file operations.
+- `analyzer.c` → Handles tokenization, categorization, and validation.
+- `Info.c` → Contains helper functions for checking keywords, operators, brackets, etc.
+- `Info.h` → Custom header defining macros, constants, and function prototypes.
+
+---
+
+## ⚙️ **Project Architecture**
+
+📁 LexicalAnalyzer
+
 │
-├── main.c # Entry point - file reading and token management
-├── token.c # Core token identification logic
-├── Info.c # Helper functions and symbol validations
-├── Info.h # Header file for function declarations & macros
-└── sample.c # Example input file to test lexical analysis
+
+├── 📄 main.c
+
+├── 📄 analyzer.c
+
+├── 📄 Info.c
+
+├── 📄 Info.h
+
+├── 📄 test.c # (Sample input file for testing)
+
+└── 📄 README.md
+
+
+Each source file has a distinct purpose:
+
+- **main.c:** Manages command-line arguments, file reading, and function calls.
+- **analyzer.c:** Core token identification logic and error management.
+- **Info.c:** Utility definitions, keyword arrays, and validation functions.
+- **Info.h:** Header file containing macros, function declarations, and ANSI color codes.
 
 ---
 
-## 🧾 Example Input  
+## 🧠 **Core Concepts Implemented**
 
-**File: `sample.c`**
-```c
-#include <stdio.h>
+1. **Lexical Analysis:** Breaking source code into minimal units (tokens).  
+2. **Finite Automata Concept:** Used implicitly for token pattern recognition.  
+3. **Stack Implementation:** Used in bracket validation for balancing parentheses.  
+4. **Error Reporting System:** Displays descriptive and color-coded error messages.  
+5. **File Handling:** Uses standard I/O (`fgetc`, `fseek`, `rewind`) for line-by-line scanning.
 
-int main() {
-    int num = 10;
-    float pi = 3.14;
-    char c = 'A';
-    printf("Number: %d, PI: %f, Char: %c\n", num, pi, c);
-    return 0;
-}
+---
+
+## 🧰 **Technology Stack**
+
+| Component | Description |
+|------------|--------------|
+| **Language** | C |
+| **Compiler** | GCC |
+| **Headers Used** | `<stdio.h>`, `<string.h>`, `<stdlib.h>` |
+| **Custom Header** | `Info.h` |
+| **OS Compatibility** | Windows, Linux |
+
+---
+
+## 🚀 **How to Run**
+
+### 🧾 Step 1 — Compile the Code
+Use the GCC compiler to compile all files together:
 ```
-🖥️ Example Output
-```
-Keyword        : int
-Identifier     : main
-Symbol         : (
-Symbol         : )
-Symbol         : {
-Keyword        : int
-Identifier     : num
-Operator       : =
-Numeric Const  : 10
-Symbol         : ;
-Keyword        : float
-Identifier     : pi
-Operator       : =
-Float Const    : 3.14
-Symbol         : ;
-Keyword        : char
-Identifier     : c
-Operator       : =
-Character Const: 'A'
-Symbol         : ;
-Identifier     : printf
-Symbol         : (
-String Literal : "Number: %d, PI: %f, Char: %c\n"
-Symbol         : ,
-Identifier     : num
-Symbol         : ,
-Identifier     : pi
-Symbol         : ,
-Identifier     : c
-Symbol         : )
-Symbol         : ;
-Keyword        : return
-Numeric Const  : 0
-Symbol         : ;
-Symbol         : }
+gcc main.c Info.c analyzer.c -o lexer
 
 ```
+
+🧾 Step 2 — Execute the Program
+```
+
+Provide a C source file as input:
+./lexer example.c
+
+```
+
+🧾 Step 3 — Output
+```
+
+The analyzer prints classified tokens and highlights syntax or lexical errors in a color-coded format such as:
+
+Keyword : int
+Identifier : main
+Symbol : (
+Symbol : )
+Symbol : {
+Numeric Constant : 10
+Operator : =
+String Literal : "Hello World"
+ERROR :
+Line No 12 : expected ':' before ';' token
+
+```
 ---
-🧠 How It Works
-Reads each character from the input C file.
 
-Detects token types based on patterns (alphabet, digit, operator, etc.).
+## 🎨 Color Legend
 
-Tracks line numbers, validates bracket balance, and identifies token boundaries.
-
-Reports errors for invalid or unclosed tokens.
-
-Outputs each token with category and color highlighting.
-
----
-
-🧰 Technologies Used
-
-Language: C
-
-Concepts: Compiler Design, Tokenization, File Handling
-
-Environment: GCC / Linux / Windows
-
----
-
-⚡ How to Run
-
-Step 1: Clone the Repository
-
-git clone https://github.com/shubhamchaudhari007/Lexical-Analyzer-for-C.git
-cd Lexical-Analyzer-for-C
-
-Step 2: Compile
-
-For Linux or macOS:
-gcc main.c token.c Info.c -o lexical_analyzer
-
-For Windows (MinGW / Code::Blocks):
-gcc main.c token.c Info.c -o lexical_analyzer.exe
-
-Step 3: Run
-./lexical_analyzer sample.c
-
-or on Windows:
-lexical_analyzer.exe sample.c
-
----
-🚧 Error Handling
-
-Missing Terminator	"Hello	⚠️ ERROR: Missing Terminating Character
-
-Invalid Constant	10.2.5	⚠️ Invalid floating constant (too many dots)
-
-Unclosed Brackets	{ int a = 5;	❌ ERROR: Unclosed Brackets Detected {
-
-Unterminated Comment	/* comment	❌ ERROR: Unterminated Comment
+Color	Meaning
+🟩 Green	Keyword
+🟨 Yellow	Identifier
+🟪 Purple	Character Constant
+🟧 Orange	String Literal
+🩵 Cyan	Operator
+🩶 Gray	Symbol
+🩷 Magenta	Numeric Constant
+🟥 Red	Error / Invalid Token
 
 ---
 
-📚 Learning Outcome
-This project helped me understand the core logic behind compiler design, particularly how lexical analysis works internally.
-It deepened my knowledge of C programming, string processing, and syntax parsing, while giving hands-on experience in error detection and modular code development.
+## 🧾 Sample Output
+```
+
+Keyword : int
+Identifier : main
+Symbol : (
+Symbol : )
+Symbol : {
+Identifier : a
+Operator : =
+Numeric Constant : 10
+Symbol : ;
+Identifier : printf
+Symbol : (
+String Literal : "Value is 10"
+Symbol : )
+Symbol : ;
+Symbol : }
+
+```
+---
+
+## 📊 Learning Outcomes
+
+Through this project, I explored:
+
+The working of lexical analyzers in compiler design.
+
+Building a modular compiler front-end component.
+
+How tokens are categorized and validated.
+
+Implementing error-handling and recovery in low-level language.
+
+The connection between automata theory and compiler construction.
 
 ---
-👨‍💻 Author
 
-Shubham Chaudhari
+## 🧩 Future Enhancements
 
-📧 shubhamchaudhari508@gmail.com
+Add symbol table generation for variables and functions.
 
-🔗 [LinkedIn](https://www.linkedin.com/in/shubham-chaudhari-102672260/)
+Implement intermediate code representation (ICR).
 
-💻 GitHub()
+Extend validation for nested ternary operators.
+
+Add support for preprocessor directives like #define and #include.
+
+Integrate with parser and semantic analyzer to form a mini compiler.
 
 ---
 
-⭐ Support
-If you like this project, please consider starring 🌟 the repository and sharing it with others.
-Your support motivates me to build more open-source projects!
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+Feel free to fork this repo, open an issue, or submit a pull request.
+
+---
+
+
+## 🪪 License
+
+This project is licensed under the MIT License — you are free to use, modify, and distribute it for educational or personal purposes.
