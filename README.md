@@ -63,9 +63,9 @@ The project is split into multiple files for clarity:
 
 ├── 📄 main.c
 
-├── 📄 analyzer.c
+├── 📄 tokensCheck.c
 
-├── 📄 Info.c
+├── 📄 Functions.c
 
 ├── 📄 Info.h
 
@@ -107,11 +107,10 @@ Each source file has a distinct purpose:
 
 ## 🚀 **How to Run**
 
-### 🧾 Step 1 — Compile the Code
+ 🧾 Step 1 — Compile the Code
 Use the GCC compiler to compile all files together:
 ```
-gcc main.c Info.c analyzer.c -o lexer
-
+gcc main.c Functions.c tokensCheck.c -o lexer
 ```
 
 🧾 Step 2 — Execute the Program
@@ -119,7 +118,6 @@ gcc main.c Info.c analyzer.c -o lexer
 
 Provide a C source file as input:
 ./lexer example.c
-
 ```
 
 🧾 Step 3 — Output
@@ -144,13 +142,21 @@ Line No 12 : expected ':' before ';' token
 ## 🎨 Color Legend
 
 Color	Meaning
+
 🟩 Green	Keyword
+
 🟨 Yellow	Identifier
+
 🟪 Purple	Character Constant
+
 🟧 Orange	String Literal
+
 🩵 Cyan	Operator
+
 🩶 Gray	Symbol
+
 🩷 Magenta	Numeric Constant
+
 🟥 Red	Error / Invalid Token
 
 ---
